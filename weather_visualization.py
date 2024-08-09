@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import datetime
 from tkinter import messagebox
 
-API_KEY = 'your_api_key_here'  # Make sure this matches the API key in your main script
+API_KEY = ''  
 
 def get_location_coordinates(city):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"

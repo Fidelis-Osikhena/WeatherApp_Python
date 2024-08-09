@@ -7,7 +7,7 @@ from tkinter import font
 from weather_visualization import plot_temperature_trends
 
 
-API_KEY = 'f64378afbe236cf38f19c587916f458a'  
+API_KEY = ''  
 FAVORITES_FILE = 'favorites.json'
 
 def get_weather(city):
