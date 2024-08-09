@@ -4,6 +4,7 @@ import requests
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import font
+from weather_visualization import plot_temperature_trends
 
 
 API_KEY = 'f64378afbe236cf38f19c587916f458a'  
@@ -24,6 +25,7 @@ def get_weather(city):
         return weather
     else:
         return None
+    
 
 def search_weather():
     city = city_entry.get()
@@ -94,6 +96,13 @@ def quick_access_weather(city):
     else:
         messagebox.showerror("Error", "City not found.")
 
+def show_temperature_trends():
+    city = city_entry.get()
+    if city:
+        plot_temperature_trends(city)
+    else:
+        messagebox.showwarning("Warning", "Please enter a city name.")
+
 # Load favorites
 favorites = load_favorites()
 
@@ -118,6 +127,9 @@ city_label.pack(side=tk.LEFT, padx=5)
 
 city_entry = tk.Entry(entry_frame, font=label_font)
 city_entry.pack(side=tk.LEFT, padx=5)
+
+trend_button = tk.Button(root, text="Show Temperature Trends", command=show_temperature_trends)
+trend_button.pack(pady=10)
 
 search_button = tk.Button(root, text="Search Weather", command=search_weather, bg="blue", fg="white",
                           font=button_font, relief="raised")
