@@ -2,8 +2,11 @@ import requests
 import matplotlib.pyplot as plt
 import datetime
 from tkinter import messagebox
+from dotenv import load_dotenv
+import os
 
-API_KEY = ''  
+load_dotenv()
+API_KEY = os.getenv('API_KEY')  
 
 def get_location_coordinates(city):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"
